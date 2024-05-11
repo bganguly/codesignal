@@ -1,35 +1,35 @@
 CREATE PROCEDURE solution()
 BEGIN
-	/* Write your SQL here. Terminate each statement with a semicolon. */
-    DECLARE done INT DEFAULT FALSE;
-    DECLARE a,b, c,d INT;
-    DECLARE cur CURSOR FOR 
-      SELECT request_id, request, seat_no, person_id 
-      FROM requests order by request_id;
-    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-  
-    OPEN cur;
+  /* Write your SQL here. Terminate each statement with a semicolon. */
+  DECLARE done INT DEFAULT FALSE;
+  DECLARE a,b, c,d INT;
+  DECLARE cur CURSOR FOR 
+    SELECT request_id, request, seat_no, person_id 
+    FROM requests order by request_id;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
-    read_loop: LOOP
-      FETCH cur INTO a, b,c,d;
-      IF done THEN
-        LEAVE read_loop;
-      END IF;
-      SELECT person_id, status INTO @person_id, @status FROM seats WHERE seat_no = c;
-      if @person_id = 0 THEN
-        update seats set status = b , person_id = d
-        where seat_no = c;
-      else  
-        if @person_id = d THEN
-          if b > @status then
-            update seats set status = b 
-            where seat_no = c;
-          end if;
-        end if;  
+  OPEN cur;
+
+  read_loop: LOOP
+    FETCH cur INTO a, b,c,d;
+    IF done THEN
+      LEAVE read_loop;
+    END IF;
+    SELECT person_id, status INTO @person_id, @status FROM seats WHERE seat_no = c;
+    if @person_id = 0 THEN
+      update seats set status = b , person_id = d
+      where seat_no = c;
+    else  
+      if @person_id = d THEN
+        if b > @status then
+          update seats set status = b 
+          where seat_no = c;
+        end if;
       end if;  
-    END LOOP;
-	
-    CLOSE cur;
-	
-	select * from seats;
+    end if;  
+  END LOOP;
+
+  CLOSE cur;
+  
+  select * from seats;
 END
