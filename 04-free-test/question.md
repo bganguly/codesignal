@@ -1,0 +1,1 @@
+In as much detail as you an, describe what happens nehind the scenes when you visit a webpage in your browser.
