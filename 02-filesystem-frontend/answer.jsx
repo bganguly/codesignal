@@ -17,26 +17,22 @@ const App = () => {
     ).toString().padStart(2,'0');
   }
   
-  function handleHoursUpButtonClick() {
-    //TODO: implement this
+  const handleHoursUpButtonClick = ()  =>{
     const tempHours = hours;
     setHours(getHours(tempHours, true));
   }
 
-  function handleHoursDownButtonClick() {
-    //TODO: implement this
+  const handleHoursDownButtonClick= ()  => {
     const tempHours = hours;
     setHours(getHours(tempHours, false));
   }
 
-  function handleMinutesUpButtonClick() {
-    //TODO: implement this
+  const handleMinutesUpButtonClick= ()  => {
     const tempMinutes = minutes;
     setMinutes(getMinutes(tempMinutes, true));
   }
 
-  function handleMinutesDownButtonClick() {
-    //TODO: implement this
+  const handleMinutesDownButtonClick= ()  => {
     const tempMinutes = minutes;
     setMinutes(getMinutes(tempMinutes, false));
   }
