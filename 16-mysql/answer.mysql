@@ -1,7 +1,7 @@
 CREATE PROCEDURE solution()
 BEGIN
   /* Write your SQL here. Terminate each statement with a semicolon. */
-  DECLARE done INT DEFAULT FALSE;
+  DECLARE done BOOL DEFAULT FALSE;
   DECLARE a,b, c,d INT;
   DECLARE cur CURSOR FOR 
     SELECT request_id, request, seat_no, person_id 
