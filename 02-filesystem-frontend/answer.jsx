@@ -18,22 +18,22 @@ const App = () => {
   }
   
   const handleHoursUpButtonClick = ()  =>{
-    const tempHours = hours;
+    const tempHours = parseInt(hours);
     setHours(getHours(tempHours, true));
   }
 
-  const handleHoursDownButtonClick= ()  => {
-    const tempHours = hours;
+  const handleHoursDownButtonClick = ()  => {
+    const tempHours = parseInt(hours);
     setHours(getHours(tempHours, false));
   }
 
-  const handleMinutesUpButtonClick= ()  => {
-    const tempMinutes = minutes;
+  const handleMinutesUpButtonClick = ()  => {
+    const tempMinutes = parseInt(minutes);
     setMinutes(getMinutes(tempMinutes, true));
   }
 
-  const handleMinutesDownButtonClick= ()  => {
-    const tempMinutes = minutes;
+  const handleMinutesDownButtonClick = ()  => {
+    const tempMinutes = parseInt(minutes);
     setMinutes(getMinutes(tempMinutes, false));
   }
 
