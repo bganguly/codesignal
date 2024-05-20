@@ -1,3 +1,5 @@
+-- https://onecompiler.com/mysql/42cuxuqef
+
 CREATE PROCEDURE solution()
 BEGIN
   /* Write your SQL here. Terminate each statement with a semicolon. */
